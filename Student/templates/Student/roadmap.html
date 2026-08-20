@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road map and resources</title>
+    <link rel="stylesheet" href="./styleroad.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+      center{
+        padding-top: 3rem;
+    }
+    h4{
+        text-align: center;
+        padding-top: 1rem;
+    }
+    .cf:before,
+    .cf:after {
+        content: " ";
+        display: table;
+    }
+  
+    .cf:after {
+        clear: both;
+    }
+  
+    
+  
+    .menu,
+    .submenu {
+     margin: 0;
+     padding: 0;
+     list-style: none;
+    }
+  
+    .menu {   
+     margin: 10px auto;
+     width: 800px;   
+     width: -moz-fit-content;
+     width: -webkit-fit-content;
+     width: fit-content; 
+     
+    }
+  
+    .menu > li {
+     background: #000;
+     float: left;
+     position: relative;
+     transform: skewX(25deg);
+    }
+  
+    .menu a {
+     display: block;
+     color: #fff;
+     text-transform: uppercase;
+     text-decoration: none;
+     font-family: Arial, Helvetica;
+     font-size: 14px;
+    }  
+  
+    .menu li:hover {
+     background: #e74c3c;
+    }  
+  
+    .menu > li > a {
+     transform: skewX(-25deg);
+     padding: 1em 2em;
+    }
+  
+    /* Dropdown */
+    .submenu {
+     position: absolute;
+     width: 200px;
+     left: 50%; margin-left: -100px;
+     transform: skewX(-25deg);
+     transform-origin: left top;
+    }
+  
+    .submenu li {
+     background-color: #34495e;
+     position: relative;
+     overflow: hidden;  
+    }      
+  
+    .submenu > li > a {
+     padding: 1em 2em;   
+    }
+  
+    .submenu > li::after {
+     content: '';
+     position: absolute;
+     top: -125%;
+     height: 100%;
+     width: 100%;   
+     box-shadow: 0 0 50px rgba(0, 0, 0, .9);   
+    }  
+  
+    .submenu > li:nth-child(odd){
+     transform: skewX(-25deg) translateX(0);
+    }
+  
+    .submenu > li:nth-child(odd) > a {
+     transform: skewX(25deg);
+    }
+  
+    .submenu > li:nth-child(odd)::after {
+     right: -50%;
+     transform: skewX(-25deg) rotate(3deg);
+    }    
+  
+    .submenu > li:nth-child(even){
+     transform: skewX(25deg) translateX(0);
+    }
+  
+    .submenu > li:nth-child(even) > a {
+     transform: skewX(-25deg);
+    }
+  
+    .submenu > li:nth-child(even)::after {
+     left: -50%;
+     transform: skewX(25deg) rotate(3deg);
+    }
+  
+    /* Show dropdown */
+    .submenu,
+    .submenu li {
+     
+     visibility: hidden;   
+    }
+  
+    .submenu li {
+     transition: .2s ease transform;
+    }
+  
+    .menu > li:hover .submenu,
+    .menu > li:hover .submenu li {
+     opacity: 1;
+     visibility: visible;
+    }  
+  
+    .menu > li:hover .submenu li:nth-child(even){
+     transform: skewX(25deg) translateX(15px);   
+    }
+  
+    .menu > li:hover .submenu li:nth-child(odd){
+     transform: skewX(-25deg) translateX(-15px);   
+    }
+    
+    </style>
+</head>
+<body>
+  <ul class="menu cf">
+    <li><a href="{% url 's_home' %}">Home</a></li>
+    <li>
+            <a href="#">Placement</a>
+            <ul class="submenu">
+    <li><a href="{% url 'splacement_stats' %}">Placement Statistics</a></li>
+    <li><a href="#">On Campus Placements</a></li>
+    <li><a href="{% url 'off_campus' %}">Off Campus Placements</a></li>
+    <li><a href="#">Placed Students</a></li>
+    </ul>
+    </li>
+    <li><a href="{% url 'roadmap_resources' %}">Roadmap and Resources</a></li>
+    <li><a href="#">Interview Experience</a></li>
+    <li><a href="{% url 'resume_builder' %}">Resume Builder</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_profile' user.username %}"><i class="fas fa-user-circle"></i> {{user.username}}</a></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_logout' %}">Logout</a></li>
+    {%else%}
+    <li><a href="{% url 's_login' %}">Login</a></li>
+    {%endif%}
+    </ul>
+
+    
+      </div>
+      <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                  <h1 class="fw-light">Road Map and Resources</h1>
+                  <p class="lead text-body-secondary">This roadmap helps you plan your future in Computer Science (CSE) and get a good job. It shows you what to learn and do step-by-step, and gives you useful resources to help you along the way. With this guide, you'll be ready to land your dream job in CSE!</p>
+                </div>
+            </div>
+            <div data-wc="canvas-overlay" class="canvas-overlay86" style="top: 0px; user-select: none; width: 100%; cursor: grab; position: absolute; height: 100%; left: 0px;"><svg style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; pointer-events: none;"><g class="translate" style="transform: translate(551px, 271px);"><g class="scale" style="transform-origin: 0px 0px; transform: scale(0.0917011, 0.0917011);"><g pointer-events="none"></g><g><defs><filter id="badge-shadow-resting"><feDropShadow dx="0" dy="0" stdDeviation="1" flood-opacity="0.08" flood-color="#000000"></feDropShadow><feDropShadow dx="0" dy="4" stdDeviation="2" flood-opacity="0.1" flood-color="#000000"></feDropShadow></filter><filter id="badge-shadow-hover"><feDropShadow dx="0" dy="0" stdDeviation="1" flood-opacity="0.08" flood-color="#000000"></feDropShadow><feDropShadow dx="0" dy="4" stdDeviation="2" flood-opacity="0.15" flood-color="#000000"></feDropShadow></filter></defs></g><g pointer-events="none"></g><g pointer-events="none"></g></g></g></svg></div>
+        </section>
+        
+        
+        <!--cards starting-->
+
+
+        
+
+
+        <center style="padding-top: 0;"><h1 class="fw-light ">Roadmap</h1></center>
+        <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+              
+
+<svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;" width="100%" height="225" fill="currentColor" class="bi bi-database" viewBox="0 0 16 16">
+  <path d="M4.318 2.687C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4c0-.374.356-.875 1.318-1.313M13 5.698V7c0 .374-.356.875-1.318 1.313C10.766 8.729 9.464 9 8 9s-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777A5 5 0 0 0 13 5.698M14 4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16s3.022-.289 4.096-.777C13.125 14.755 14 14.007 14 13zm-1 4.698V10c0 .374-.356.875-1.318 1.313C10.766 11.729 9.464 12 8 12s-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10s3.022-.289 4.096-.777A5 5 0 0 0 13 8.698m0 3V13c0 .374-.356.875-1.318 1.313C10.766 14.729 9.464 15 8 15s-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13s3.022-.289 4.096-.777c.324-.147.633-.323.904-.525"/>
+</svg>
+
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://whimsical.com/dbms-roadmap-C9vhnZy9RY9QkGRPgpZnDN" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">DBMS</h4>
+            </div>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
+                  <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+                </svg>
+                
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://whimsical.com/operating-system-cheatsheet-5Xv9MsZqsrtQwG4wwyEohq" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Operating System</h4>
+            </div>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;" width="100%" height="225" fill="currentColor" class="bi bi-diagram-3" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5zM0 11.5A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                </svg>
+                
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://whimsical.com/object-oriented-programming-7kyfM6D7AuURC6W3ESqD9t" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">View</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">OOPs</h4>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <center class="col-md-12 col-sm-12 mx-auto"><h1 class="fw-light">Aptitude</h1></center>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C ;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                  <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
+                </svg>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1aNbDXgTqkV_sFjblXVi11BXwxaB-A2Lj/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Blood Relation Problem</h4>
+            </div>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                  <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
+                </svg>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1KjPmTGJpIqWtsthIC2TOQPO9ymI5_Gyi/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Calender Problem</h4>
+            </div>
+            
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                 padding-top:10px;" width="100%" height="225" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                  <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a2 2 0 0 0-.453-.618A5.98 5.98 0 0 1 2 6m6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1"/>
+                </svg>
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1xsVz2fYZJxCb6WsQarknGTvbTrWjJ-Fe/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Coding Decoding Problem</h4>
+            </div>
+                    <center class="col-md-12 col-sm-12 mx-auto"><h1 class="fw-light">Interview</h1></center>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;" width="100%" height="225" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                  <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/19EsxHrfRg02M_lbdeWrAc9XYuKZkwNYL/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Sample Interview Questions-1</h4>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;" width="100%" height="225" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                  <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1bHjNJrCdG_RR4BEEMlfxAlgujFja8LFF/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Sample Interview Questions-2</h4>
+            </div>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;" width="100%" height="225" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                  <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1jQdEn9uVyZalvBtRmVJRXxpGxyLlXkol/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Sample Interview Questions-3</h4>
+            </div>
+    
+
+            <center class="col-md-12 col-sm-12 mx-auto"><h1 class="fw-light">Data Structures and Algorithm</h1></center>
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
+                  <path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282z"/>
+                  <path d="M3.857 13.145h7.137v-1.428H3.857zM10.254 0 9.108.852l4.26 5.727 1.146-.852zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1C5FvRSM9arzsla6LuSLvGwRKnUPC00Gm/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Datastructures and Algorithm-1</h4>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
+                  <path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282z"/>
+                  <path d="M3.857 13.145h7.137v-1.428H3.857zM10.254 0 9.108.852l4.26 5.727 1.146-.852zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/10JiJOtGhfNks91LG9rh-NDY4eG8MhI58/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Datastructures and Algorithm-2</h4>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color: #55595C;
+                padding-top: 10px;" width="100%" height="225" fill="currentColor" class="bi bi-stack-overflow" viewBox="0 0 16 16">
+                  <path d="M12.412 14.572V10.29h1.428V16H1v-5.71h1.428v4.282z"/>
+                  <path d="M3.857 13.145h7.137v-1.428H3.857zM10.254 0 9.108.852l4.26 5.727 1.146-.852zm-3.54 3.377 5.484 4.567.913-1.097L7.627 2.28l-.914 1.097zM4.922 6.55l6.47 3.013.603-1.294-6.47-3.013zm-.925 3.344 6.985 1.469.294-1.398-6.985-1.468z"/>
+                </svg>
+                <div class="card-body">
+        
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="https://drive.google.com/file/d/1-7XAJOLIUwU6eebKBTECqp7LIv48h318/view?usp=drive_link" target="_blank"><button type="button" class="btn btn-sm btn-outline-secondary">Download</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h4 class="fw-light">Data Structures and Algorithm-3</h4>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

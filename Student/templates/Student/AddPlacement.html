@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Placement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="icon" href="favicon.png">
+    <style>
+        /* Add your CSS styles here */
+        /* This is just a basic example, you can modify it according to your design */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color:black;
+        }
+
+        /* Menu Dropdown */
+        .cf:before,
+        .cf:after {
+            content: " ";
+            display: table;
+        }
+
+        .cf:after {
+            clear: both;
+        }
+
+        .menu,
+        .submenu {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .menu {
+            margin: 10px auto;
+            width: 800px;
+            width: -moz-fit-content;
+            width: -webkit-fit-content;
+            width: fit-content;
+        }
+
+        .menu > li {
+            background: #000;
+            float: left;
+            position: relative;
+            transform: skewX(25deg);
+        }
+
+        .menu a {
+            display: block;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 1em 2em;
+        }
+
+        .menu li:hover {
+            background: #e74c3c;
+        }
+
+        .menu > li > a {
+            transform: skewX(-25deg);
+        }
+
+        /* Dropdown */
+        .submenu {
+            position: absolute;
+            width: 200px;
+            left: 50%;
+            margin-left: -100px;
+            transform: skewX(-25deg);
+            transform-origin: left top;
+        }
+
+        .submenu li {
+            background-color: #34495e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submenu > li > a {
+            padding: 1em 2em;
+        }
+
+        .submenu > li::after {
+            content: '';
+            position: absolute;
+            top: -125%;
+            height: 100%;
+            width: 100%;
+            box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+        }
+
+        .submenu > li:nth-child(odd){
+            transform: skewX(-25deg) translateX(0);
+        }
+
+        .submenu > li:nth-child(odd) > a {
+            transform: skewX(25deg);
+        }
+
+        .submenu > li:nth-child(odd)::after {
+            right: -50%;
+            transform: skewX(-25deg) rotate(3deg);
+        }
+
+        .submenu > li:nth-child(even){
+            transform: skewX(25deg) translateX(0);
+        }
+
+        .submenu > li:nth-child(even) > a {
+            transform: skewX(-25deg);
+        }
+
+        .submenu > li:nth-child(even)::after {
+            left: -50%;
+            transform: skewX(25deg) rotate(3deg);
+        }
+
+        /* Show dropdown */
+        .submenu,
+        .submenu li {
+            visibility: hidden;
+        }
+
+        .submenu li {
+            transition: .2s ease transform;
+        }
+
+        .menu > li:hover .submenu,
+        .menu > li:hover .submenu li {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menu > li:hover .submenu li:nth-child(even){
+            transform: skewX(25deg) translateX(15px);   
+        }
+
+        .menu > li:hover .submenu li:nth-child(odd){
+            transform: skewX(-25deg) translateX(-15px);   
+        }
+
+        /* Form Styles */
+        .center-form {
+            margin: 50px auto;
+            width: 50%;
+            background-color: #ddd; /* Gray background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .center-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .center-form input[type="text"] {
+            width: calc(100% - 20px); /* Adjusting for padding */
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .center-form button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .center-form button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu cf">
+        <li><a href="{% url 's_home' %}">Home</a></li>
+        <li>
+                <a href="#">Placement</a>
+                <ul class="submenu">
+        <li><a href="{% url 'splacement_stats' %}">Placement Statistics</a></li>
+        <li><a href="{% url 's_oncampus' %}">On Campus Placements</a></li>
+        <li><a href="{% url 'off_campus' %}">Off Campus Placements</a></li>
+        <li><a href="{% url 'placed_students' %}">Placed Students</a></li>
+        </ul>
+        </li>
+        <li><a href="{% url 'roadmap_resources' %}">Roadmap and Resources</a></li>
+        <li><a href="{% url 'student_interview_exp' %}">Interview Experience</a></li>
+        <li><a href="{% url 'resume_builder' %}">Resume Builder</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 's_profile' user.username %}"><i class="fas fa-user-circle"></i> {{user.username}}</a></li>
+        {%endif%}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 's_logout' %}">Logout</a></li>
+        {%else%}
+        <li><a href="{% url 's_login' %}">Login</a></li>
+        {%endif%}
+        </ul>
+   
+    <div class="center-form">
+        <h1 style="text-align: center;">Add Placement</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            
+            <label for="company_name">Company Name:</label><br>
+            <input type="text" id="company_name" name="company_name"><br><br>
+            
+            <label for="department">Department:</label><br>
+            <input type="text" id="department" name="department"><br><br>
+            
+            <label for="ctc">CTC:</label><br>
+            <input type="text" id="ctc" name="ctc"><br><br>
+            
+            <label for="batch">Batch:</label><br>
+            <input type="text" id="batch" name="batch"><br><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

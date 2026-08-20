@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <title>Placement Portal GECW</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta name="description" content="" />
+ 
+  <link rel="stylesheet" href="{% static 'Student/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/profile.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/accept.css' %}"> 
+  <link rel="stylesheet" href="{% static 'Student/placementstats.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/roadmap.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/studenthome.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/interviewexperience.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/placedstudents.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/studentoncampus.css' %}">
+  <link rel="stylesheet" href="{% static 'Student/jobdetails.css' %}">
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <link rel="icon" href="favicon.png">
+ 
+</head>
+
+<body>
+    
+    <ul class="menu cf">
+        <li><a href="{% url 's_home' %}">Home</a></li>
+        <li>
+                <a href="#">Placement</a>
+                <ul class="submenu">
+        <li><a href="{% url 'splacement_stats' %}">Placement Statistics</a></li>
+        <li><a href="{% url 's_oncampus' %}">On Campus Placements</a></li>
+        <li><a href="{% url 'off_campus' %}">Off Campus Placements</a></li>
+        <li><a href="{% url 'placed_students' %}">Placed Students</a></li>
+        </ul>
+        </li>
+        <li><a href="{% url 'roadmap_resources' %}">Roadmap and Resources</a></li>
+        <li><a href="{% url 'student_interview_exp' %}">Interview Experience</a></li>
+        <li><a href="{% url 'resume_builder' %}">Resume Builder</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 's_profile' user.username %}"><i class="fas fa-user-circle"></i> {{user.username}}</a></li>
+        {%endif%}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 's_logout' %}">Logout</a></li>
+        {%else%}
+        <li><a href="{% url 's_login' %}">Login</a></li>
+        {%endif%}
+        </ul>
+     
+            {% block main%}
+
+            {%endblock%}
+</body>
+
+</html>

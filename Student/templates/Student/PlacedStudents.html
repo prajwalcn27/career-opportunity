@@ -1,0 +1,45 @@
+{% extends 'Student/navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placed Students</title>
+    
+</head>
+<body>
+    {% block main %}
+    <h1>Placed Students</h1>
+    
+    <form action="{% url 'placed_students' %}" method="GET">
+        <label for="batch">Search by Batch: &nbsp;&nbsp;&nbsp;</label>
+        <input type="text" id="batch" name="batch" placeholder="eg:2024">
+        <button type="submit">Search</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Company Name</th>
+            <th>Department</th>
+            <th>CTC(LPA)</th>
+            <th>Batch</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.company_name }}</td>
+            <td>{{ student.department }}</td>
+            <td>{{ student.ctc }}</td>
+            <td>{{ student.batch }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <div class="center-button">
+        <a href="{% url 'add_placement' %}" class="placed_button">Placed at</a>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>

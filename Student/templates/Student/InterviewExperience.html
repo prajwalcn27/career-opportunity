@@ -1,0 +1,30 @@
+<!-- templates/interview_experience.html -->
+{% extends 'Student/navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Experiences</title>
+    
+</head>
+<body>
+   
+<h2>Interview Experiences</h2>
+{% block main %}
+{% for interview in interviews %}
+    <div class="ie_card">
+        <div class="ie_container">
+            <h4><b>Name: </b>{{ interview.name }}</h4>
+            <p><b>Batch: </b>{{ interview.batch }}</p>
+            <p><b>Linkedin: </b>{{ interview.linkedin}}</p>
+            <p><b>Company: </b>{{ interview.company }}</p>
+            <p class="experience"><b>Experience: </b><br><br>{{ interview.experience }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>No interview experiences available.</p>
+{% endfor %}
+{% endblock %}
+</body>
+</html>

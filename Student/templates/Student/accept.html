@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Resume Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body{
+      background-color:black;
+    }
+    .container {
+      background-color:grey; /* Light pink background color with opacity */
+      border-radius: 10px; /* Rounded corners for container */
+      padding: 30px; /* Add some padding to the container */
+      margin-top:80px; /* Adjusted top margin for better alignment */
+      margin-bottom: 50px; /* Adjusted bottom margin */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+      width: 750px; /* Increased width of the container */
+    }
+    form {
+      color: #495057; /* Dark gray text color */
+    }
+    h1 {
+      color: #007bff; /* Blue heading color */
+      text-align: center; /* Center the heading */
+    }
+    label {
+      color: #343a40; /* Dark gray label color */
+      color:white;
+      font-weight:bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+    }
+    input{
+      opacity:0.4;
+      border-radius:15px;
+    }
+    textarea{
+      opacity:0.4;
+      border-radius:10px;
+    }
+    .btn-primary {
+      background-color: #62c489; /* Blue submit button color */
+      border-color:black; /* Blue submit button border color */
+      width:100%; /* Make the button full width */
+      font-size: 1.2rem; /* Increase the font size */
+      margin-top:50px;
+    }
+    .btn-primary:hover {
+      background-color: #34eb6e; /* Darker blue on hover */
+      border-color:#145244; /* Darker blue border on hover */
+    }
+    #form_heading{
+      color:white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+      font-family: 'Arial', sans-serif; /* Set the font family */
+      font-size: 2.5rem; /* Set the font size */
+      font-weight: bold; /* Set the font weight */
+      letter-spacing: 1px; /* Add letter-spacing */
+      text-transform: uppercase; /* Convert text to uppercase */
+    }
+
+    /* Add your CSS styles here */
+        /* This is just a basic example, you can modify it according to your design */
+      /* Menu Dropdown */
+      .cf:before,
+      .cf:after {
+          content: " ";
+          display: table;
+      }
+    
+      .cf:after {
+          clear: both;
+      }
+    
+      
+    
+      .menu,
+      .submenu {
+       margin: 0;
+       padding: 0;
+       list-style: none;
+      }
+    
+      .menu {   
+       margin: 10px auto;
+       width: 800px;   
+       width: -moz-fit-content;
+       width: -webkit-fit-content;
+       width: fit-content; 
+       
+      }
+    
+      .menu > li {
+       background: #000;
+       float: left;
+       position: relative;
+       transform: skewX(25deg);
+      }
+    
+      .menu a {
+       display: block;
+       color: #fff;
+       text-transform: uppercase;
+       text-decoration: none;
+       font-family: Arial, Helvetica;
+       font-size: 14px;
+      }  
+    
+      .menu li:hover {
+       background: #e74c3c;
+      }  
+    
+      .menu > li > a {
+       transform: skewX(-25deg);
+       padding: 1em 2em;
+      }
+    
+      /* Dropdown */
+      .submenu {
+       position: absolute;
+       width: 200px;
+       left: 50%; margin-left: -100px;
+       transform: skewX(-25deg);
+       transform-origin: left top;
+      }
+    
+      .submenu li {
+       background-color: #34495e;
+       position: relative;
+       overflow: hidden;  
+      }      
+    
+      .submenu > li > a {
+       padding: 1em 2em;   
+      }
+    
+      .submenu > li::after {
+       content: '';
+       position: absolute;
+       top: -125%;
+       height: 100%;
+       width: 100%;   
+       box-shadow: 0 0 50px rgba(0, 0, 0, .9);   
+      }  
+    
+      .submenu > li:nth-child(odd){
+       transform: skewX(-25deg) translateX(0);
+      }
+    
+      .submenu > li:nth-child(odd) > a {
+       transform: skewX(25deg);
+      }
+    
+      .submenu > li:nth-child(odd)::after {
+       right: -50%;
+       transform: skewX(-25deg) rotate(3deg);
+      }    
+    
+      .submenu > li:nth-child(even){
+       transform: skewX(25deg) translateX(0);
+      }
+    
+      .submenu > li:nth-child(even) > a {
+       transform: skewX(-25deg);
+      }
+    
+      .submenu > li:nth-child(even)::after {
+       left: -50%;
+       transform: skewX(25deg) rotate(3deg);
+      }
+    
+      /* Show dropdown */
+      .submenu,
+      .submenu li {
+       
+       visibility: hidden;   
+      }
+    
+      .submenu li {
+       transition: .2s ease transform;
+      }
+    
+      .menu > li:hover .submenu,
+      .menu > li:hover .submenu li {
+       opacity: 1;
+       visibility: visible;
+      }  
+    
+      .menu > li:hover .submenu li:nth-child(even){
+       transform: skewX(25deg) translateX(15px);   
+      }
+    
+      .menu > li:hover .submenu li:nth-child(odd){
+       transform: skewX(-25deg) translateX(-15px);   
+      }
+   
+  </style>
+</head>
+
+<body>
+
+
+  <ul class="menu cf">
+    <li><a href="{% url 's_home' %}">Home</a></li>
+    <li>
+            <a href="https://www.blogger.com/blogger.g?blogID=1719501309664700552">Placement</a>
+            <ul class="submenu">
+              <li><a href="{% url 'splacement_stats' %}">Placement Statistics</a></li>
+              <li><a href="{% url 's_oncampus' %}">On Campus Placements</a></li>
+              <li><a href="{% url 'off_campus' %}">Off Campus Placements</a></li>
+              <li><a href="{% url 'placed_students' %}">Placed Students</a></li>
+              </ul>
+              </li>
+              <li><a href="{% url 'roadmap_resources' %}">Roadmap and Resources</a></li>
+              <li><a href="{% url 'student_interview_exp' %}">Interview Experience</a></li>
+              <li><a href="{% url 'resume_builder' %}">Resume Builder</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_profile' user.username %}"><i class="fas fa-user-circle"></i> {{user.username}}</a></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_logout' %}">Logout</a></li>
+    {%else%}
+    <li><a href="{% url 's_login' %}">Login</a></li>
+    {%endif%}
+    </ul>
+  
+  <div class="container">
+    <h1 class="mb-4" id="form_heading">Resume Form</h1>
+    <form method="post">
+      {% csrf_token %}
+      <h1 class="mb-4">{{user_profile.name}}</h1>
+
+      <!-- Name Input -->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name">
+      </div>
+
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="your.email@example.com">
+      </div>
+
+      <!-- Linked in -->
+      <div class="form-group">
+        <label for="email">Linked in:</label>
+        <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="your linkedin profile">
+      </div> 
+   
+      <!-- Phone Input -->
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="tel" class="form-control" id="phone" name="phone" placeholder="1234567890">
+      </div>
+
+      <!-- Summary Input -->
+      <div class="form-group">
+        <label for="summary">Summary:</label>
+        <textarea class="form-control" id="summary" name="summary" rows="3" placeholder="Briefly describe your professional background and career objectives"></textarea>
+      </div>
+
+      <!-- Degree and School Input -->
+      <div class="form-group">
+        <label for="degree">Degree:</label>
+        <input type="text" class="form-control" id="degree" name="degree" placeholder="Bachelor of Science in Computer Science">
+      </div>
+      <div class="form-group">
+        <label for="school">University:</label>
+        <input type="text" class="form-control" name="university" id="university" placeholder="Your University">
+      </div>
+      <div class="form-group">
+        <label for="cgpa_degree">Degree CGPA:</label>
+        <input type="text" class="form-control" id="cgpa_degree" name="cgpa_degree" placeholder="Your degree CGPA">
+    </div>
+
+      <div class="form-group">
+        <label for="school_10">10th School:</label>
+        <input type="text" class="form-control" id="school_10" name="school_10" placeholder="Your 10th school">
+    </div>
+    
+    <div class="form-group">
+      <label for="cgpa_10">10th CGPA:</label>
+      <input type="text" class="form-control" id="cgpa_10" name="cgpa_10" placeholder="Your 10th CGPA">
+  </div>
+
+    <div class="form-group">
+        <label for="school_12">12th School:</label>
+        <input type="text" class="form-control" id="school_12" name="school_12" placeholder="Your 12th school">
+    </div>
+    
+    <div class="form-group">
+        <label for="cgpa_12">12th CGPA:</label>
+        <input type="text" class="form-control" id="cgpa_12" name="cgpa_12" placeholder="Your 12th CGPA">
+    </div>
+    
+    
+    
+
+
+
+
+
+      <!-- Previous Work Input -->
+      <div class="form-group">
+        <label for="project">Project1 Name: </label>
+        <input class="form-control" id="work"  name="project1_name" placeholder="Enter name of you project">
+      </div>
+      <div class="form-group">
+        <label for="project">Project1 Link: </label>
+        <input class="form-control" id="work" name="project1_link" placeholder="Provide github link/app link/Website link">
+      </div>
+      <div class="form-group">
+        <label for="project">Project2 Name: </label>
+        <input class="form-control" id="work" name="project2_name" placeholder="Enter name of you project">
+      </div>
+      <div class="form-group">
+        <label for="project">Project2 Link: </label>
+        <input class="form-control" id="work" name="project2_link" placeholder="Provide github link/app link/Website link">
+      </div>
+      <!-- Skills Input -->
+      <div class="form-group">
+        <label for="skills">Skills:</label>
+        <input type="text" class="form-control" id="skills" name="skills" placeholder="Programming Languages: Java, Python">
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+ 
+  
+
+</body>
+
+</html>
+

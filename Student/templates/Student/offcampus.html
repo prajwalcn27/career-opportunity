@@ -1,0 +1,358 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color:black;
+      margin: 0;
+      background-size: cover;
+      padding: 0;
+    }
+    .job-card {
+      background: linear-gradient(300deg,#3e99d6,#1597ed, #ef8172);
+      background-size: 180% 180%;
+      animation: gradient-animation 18s ease infinite;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      margin:8px;;
+      
+    }
+  
+    .job-card h2 {
+      color: #333;
+      margin-bottom: 10px;
+      
+    }
+  
+    .job-details {
+      margin-bottom: 15px;
+    }
+  
+    .job-details span {
+      font-weight: bold;
+    }
+  
+    .apply-button {
+      display: block;
+      background-color:blue;;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .apply-button:hover {
+      background-color:green;
+    }
+    #top-level{
+      padding:15px;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width:100%;
+      
+    }
+  
+    header {
+      background-color: #333;
+      padding: 15px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+    }
+  
+    header h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 24px;
+    }
+  
+    header img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+    .search-container {
+      display: flex;
+      margin-top:60px;
+      margin-bottom:50px;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .search-input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius:10px;
+      margin-right: 8px;
+      width: 300px;
+      opacity:0.7;
+    }
+  
+    .search-button {
+      padding: 8px 16px;
+      background-color:#3de068;
+      color:black;
+      border: none;
+      border-radius:10px;
+      cursor: pointer;
+    }
+  
+    
+    .search-button:hover {
+      background-color:green;
+    }
+    #paginator_heading{
+      color:white;
+    }
+    #paginator{
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+      background-color:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin-bottom:20px;
+      display:flex;
+      flex-direction:row;
+      justify-content:safe center;
+      gap:12px;
+      align-items: center;
+    }
+    .paginator_button{
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+      background-color:grey;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+  }
+  h2{
+    color:green;
+    text-align:center;
+  }
+  
+  .paginator_button:hover {
+      background-color:#6a696e;
+  }
+
+
+  .cf:before,
+      .cf:after {
+          content: " ";
+          display: table;
+      }
+    
+      .cf:after {
+          clear: both;
+      }
+    
+      
+    
+      .menu,
+      .submenu {
+       margin: 0;
+       padding: 0;
+       list-style: none;
+      }
+    
+      .menu {   
+       margin: 10px auto;
+       width: 800px;   
+       width: -moz-fit-content;
+       width: -webkit-fit-content;
+       width: fit-content; 
+       
+      }
+    
+      .menu > li {
+       background: #000;
+       float: left;
+       position: relative;
+       transform: skewX(25deg);
+      }
+    
+      .menu a {
+       display: block;
+       color: #fff;
+       text-transform: uppercase;
+       text-decoration: none;
+       font-family: Arial, Helvetica;
+       font-size: 14px;
+      }  
+    
+      .menu li:hover {
+       background: #e74c3c;
+      }  
+    
+      .menu > li > a {
+       transform: skewX(-25deg);
+       padding: 1em 2em;
+      }
+    
+      /* Dropdown */
+      .submenu {
+       position: absolute;
+       width: 200px;
+       left: 50%; margin-left: -100px;
+       transform: skewX(-25deg);
+       transform-origin: left top;
+      }
+    
+      .submenu li {
+       background-color: #34495e;
+       position: relative;
+       overflow: hidden;  
+      }      
+    
+      .submenu > li > a {
+       padding: 1em 2em;   
+      }
+    
+      .submenu > li::after {
+       content: '';
+       position: absolute;
+       top: -125%;
+       height: 100%;
+       width: 100%;   
+       box-shadow: 0 0 50px rgba(0, 0, 0, .9);   
+      }  
+    
+      .submenu > li:nth-child(odd){
+       transform: skewX(-25deg) translateX(0);
+      }
+    
+      .submenu > li:nth-child(odd) > a {
+       transform: skewX(25deg);
+      }
+    
+      .submenu > li:nth-child(odd)::after {
+       right: -50%;
+       transform: skewX(-25deg) rotate(3deg);
+      }    
+    
+      .submenu > li:nth-child(even){
+       transform: skewX(25deg) translateX(0);
+      }
+    
+      .submenu > li:nth-child(even) > a {
+       transform: skewX(-25deg);
+      }
+    
+      .submenu > li:nth-child(even)::after {
+       left: -50%;
+       transform: skewX(25deg) rotate(3deg);
+      }
+    
+      /* Show dropdown */
+      .submenu,
+      .submenu li {
+      
+       visibility: hidden;   
+      }
+    
+      .submenu li {
+       transition: .2s ease transform;
+      }
+    
+      .menu > li:hover .submenu,
+      .menu > li:hover .submenu li {
+       
+       visibility: visible;
+      }  
+    
+      .menu > li:hover .submenu li:nth-child(even){
+       transform: skewX(25deg) translateX(15px);   
+      }
+    
+      .menu > li:hover .submenu li:nth-child(odd){
+       transform: skewX(-25deg) translateX(-15px);   
+      }
+
+  </style>
+  
+</head>
+<body>
+  
+  <ul class="menu cf">
+    <li><a href="{% url 's_home' %}">Home</a></li>
+    <li>
+            <a href="#">Placement</a>
+            <ul class="submenu">
+    <li><a href="{% url 'splacement_stats' %}">Placement Statistics</a></li>
+    <li><a href="{% url 's_oncampus' %}">On Campus Placements</a></li>
+        <li><a href="{% url 'off_campus' %}">Off Campus Placements</a></li>
+        <li><a href="{% url 'placed_students' %}">Placed Students</a></li>
+    
+    </ul>
+    </li>
+    <li><a href="{% url 'roadmap_resources' %}">Roadmap and Resources</a></li>
+    <li><a href="{% url 'student_interview_exp' %}">Interview Experience</a></li>
+    <li><a href="{% url 'resume_builder' %}">Resume Builder</a></li>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_profile' user.username %}"><i class="fas fa-user-circle"></i> {{user.username}}</a></li>
+    {%endif%}
+    {% if user.is_authenticated %}
+    <li><a href="{% url 's_logout' %}">Logout</a></li>
+    {%else%}
+    <li><a href="{% url 's_login' %}">Login</a></li>
+    {%endif%}
+    </ul>
+   
+
+ {% block main %}
+  <div class="search-container">
+    <form>
+      {% csrf_token %}
+    <input type="text" class="search-input" placeholder="Search for roles" name="name">
+    <button class="search-button"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+    {% if role %}
+    <h2>Results for search on {{role}}</h2>
+    {%endif%}
+    <div id="top-level">
+    {% for j in jd %}
+    <div class="job-card">
+      <h3>Role: {{ j.role }}</h3>
+      <div class="job-details">
+        <p><span>Company Name: </span>{{j.company_name}}</p>
+        <p><span>Experience: </span>{{ j.experience }}</p>
+        <p><span>CTC:</span>{{ j.ctc }}</p>
+        <p><span>Location:</span>{{ j.location }}</p>
+      </div>
+      <a href="{{ j.link }}" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="paginator">
+    <div>
+    {% if jd.has_previous %}
+    <a class="paginator_button" href="?page={{jd.previous_page_number}}"><i class="fas fa-chevron-left"></i>Previous</a>
+    {%endif%}
+    </div>
+    <div>
+    <h2 id="paginator_heading">Results: {{jd.number}} of {{jd.paginator.num_pages}}</h2>
+    </div>
+    <div>
+    {% if jd.has_next %}
+    <a class="paginator_button" href="?page={{jd.next_page_number}}">Next<i class="fas fa-chevron-right"></i></a>
+    {%endif%}
+    </div>
+  </div>
+ {%endblock%}
+</body>
+</html>

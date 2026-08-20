@@ -1,0 +1,30 @@
+{% extends 'Student/navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Campus Jobs</title>
+    <style>
+        /* Your CSS styles for job cards and container */
+    </style>
+</head>
+<body>
+    {% block main %}
+    <h1>Available On-Campus Jobs</h1>
+    <div class="job-container">
+        {% for job in jobs %}
+        <div class="job-card">
+            <h2>{{ job.company_name }}</h2>
+            <p><strong>Role:</strong> {{ job.role }}</p>
+            <p><strong>CTC:</strong> {{ job.ctc }} LPA</p>
+            <p><strong>Description:</strong> {{ job.description|truncatechars:100 }}</p>
+            <!-- Truncate description to 100 characters -->
+            <!-- Adjust the number of characters as needed -->
+            <a href="{% url 'job_details' job.id %}" class="apply">Read more</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>

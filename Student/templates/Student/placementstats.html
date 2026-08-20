@@ -1,0 +1,169 @@
+{% extends 'Student/navbar.html'%}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  
+  <meta charset="UTF-8" />
+
+  <title>Placement Statistics</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <meta name="description" content="" />
+
+  <link rel="icon" href="favicon.png">
+
+</head>
+
+<body>
+
+
+ {% block main %}
+ 
+    <div class="chart-container">
+      <div class="charts">
+          <h1>Department Wise</h1>
+          <ul>
+              {% for d, c in dept_data %}
+                  <li>{{ d }}: {{ c }}</li>
+              {% endfor %}
+          </ul>
+          <canvas id="dept_chart"></canvas>
+      </div>
+  
+      <div class="charts">
+          <h1>Company Wise</h1>
+          <ul>
+              {% for d, c in company_data %}
+                  <li>{{ d }}: {{ c }}</li>
+              {% endfor %}
+          </ul>
+          <canvas id="company_chart"></canvas>
+      </div>
+
+      <div class="charts">
+        <h1>Batch Wise</h1>
+        <ul>
+            {% for d, c in batch_data %}
+                <li>{{ d }}: {{ c }}</li>
+            {% endfor %}
+        </ul>
+        <canvas id="batch_chart"></canvas>
+    </div>
+  </div>
+
+
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <script>
+    const ctx1= document.getElementById('dept_chart');
+    new Chart(ctx1, {
+      type: 'doughnut',
+      data: {
+        labels: {{dept|safe }},
+        datasets: [{
+          label: 'No of students placed',
+          data:{{dept_count|safe}},
+          borderWidth: 1
+        }]
+      },
+      options: {
+       
+      }
+    });
+
+ const ctx2 = document.getElementById('company_chart');
+const numBars = {{ company | safe }}.length; // Number of bars based on the number of labels
+const chartWidth = numBars * 50; // Adjust this multiplier as needed to fit your design
+ctx2.width = chartWidth; // Set the canvas width dynamically
+
+
+
+new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: {{ company | safe }},
+    datasets: [{
+      label: 'No of students placed',
+      data: {{ company_count | safe }},
+      backgroundColor: 'rgba(0, 100, 0, 0.6)', // Dark green color for bars
+      borderColor: 'rgba(0, 100, 0, 1)', // Border color for bars
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for y-axis labels
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for x-axis labels
+        }
+      }]
+    },
+    legend: {
+      labels: {
+        fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for legend labels
+      }
+    }
+  }
+});
+
+
+
+
+const ctx3 = document.getElementById('batch_chart');
+new Chart(ctx3, {
+  type: 'line',
+  data: {
+    labels: {{ batch | safe }},
+    datasets: [{
+      label: 'No of students placed',
+      data: {{ batch_count | safe }},
+      backgroundColor: 'rgba(54, 162, 235, 0.6)', // Bright blue color for bars
+      borderColor: 'rgba(0, 0, 100, 1)', // Dark blue color for the line
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for y-axis labels
+        }
+      }],
+      xAxes: [{
+        ticks: {
+          fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for x-axis labels
+        }
+      }]
+    },
+    legend: {
+      labels: {
+        fontColor: 'rgba(0, 0, 0, 0.8)' // Bright black color for legend labels
+      }
+    }
+  }
+});
+
+
+
+
+  </script>
+  {% endblock %}
+</html>
+
+
+
+
+  
+  

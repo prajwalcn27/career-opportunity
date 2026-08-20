@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Experience</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    .container {
+        background-color:grey; /* Light color */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center; /* Center align contents */
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left; /* Left align labels */
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        opacity:0.7;
+    }
+    input{
+        opacity:0.7;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #33cc33;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block; /* Make button a block element */
+        margin: 0 auto; /* Center align button */
+    }
+    
+    button:hover {
+        background-color:#248f24;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Share Experience</h2> <!-- Added heading -->
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="batch">Batch:</label>
+            <input type="text" id="batch" name="batch" required>
+        </div>
+        <div class="form-group">
+            <label for="linkedin">Linkedin:</label>
+            <input type="text" id="linkedin" name="linkedin" required>
+        </div>
+        <div class="form-group">
+            <label for="company">Company:</label>
+            <input type="text" id="company" name="company" required>
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience:</label>
+            <textarea id="experience" name="experience" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="experience">{{msg}}</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- view_company.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ company.company_name }}</title>
+    <style>
+        /* CSS for card layout */
+        .card {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color:grey;
+        }
+
+        /* CSS for company name */
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            text-align:center;
+        }
+
+        /* CSS for role */
+        .role {
+            font-size: 18px;
+            color:black;
+            margin-bottom: 10px;
+        }
+
+        /* CSS for CTC */
+        .ctc {
+            font-size: 16px;
+            color:black;
+            margin-bottom: 10px;
+        }
+
+        /* CSS for description */
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="company-name">{{ company.company_name }}</h1>
+        <h2 class="role">Role: {{ company.role }}</h2>
+        <h3 class="ctc">CTC: {{ company.ctc }} LPA</h3>
+       <h3 class="description">Description:</h3>
+        <p> {{ company.description }}</p>
+        <!-- Display other company details here -->
+        <a href="{% url 'delete_company' company.pk %}" style="text-decoration: none; color: #f44336;">Delete Company</a>
+    </div>
+</body>
+</html>

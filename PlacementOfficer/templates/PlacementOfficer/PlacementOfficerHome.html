@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Officer Home</title>
+    <style>
+        /* CSS to center the table */
+        .center-table {
+            margin: 0 auto;
+            width: 50%; /* Adjust the width as needed */
+        }
+        
+        /* CSS to color the table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd; /* Border color */
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd; /* Border color */
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5; /* Hover color */
+        }
+        
+        th {
+            background-color: black; /* Header background color */
+            color: white; /* Header text color */
+        }
+        
+        /* CSS for buttons */
+        .button {
+            background-color: #4CAF50; /* Button background color */
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .button:hover {
+            background-color: #45a049; /* Button hover background color */
+        }
+
+        /* CSS for delete button */
+        .delete-button {
+            background-color: #f44336; /* Red color */
+        }
+        
+        .delete-button:hover {
+            background-color: #d32f2f; /* Darker red color */
+        }
+
+        /* CSS for Add new button */
+        .add-new-button {
+            background-color: #2196F3; /* Blue color */
+            display: block;
+            margin: 20px auto; /* Center the button */
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline */
+            text-align: center;
+        }
+
+        .add-new-button:hover {
+            background-color: #1976D2; /* Darker blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Welcome</h1>
+    
+    <div class="center-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Company Details</th>
+                    <th>Delete Company</th>
+                    <th>Applied Student</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your table rows dynamically from Django context -->
+                {% for oj in oncampus_jobs %}
+                <tr>
+                    <td>{{ oj.company_name }}</td>
+                    <td><a href="{% url 'view_company' oj.id %}" class="button">View</a></td>
+                    <td><a href="{% url 'delete_company' oj.id %}" class="button delete-button">Delete</a></td>
+                    <td><a href="{% url 'view_student' oj.id %}" class="button">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add new button -->
+    <a href="{% url 'add_company' %}" class="add-new-button">Add new</a>
+</body>
+</html>

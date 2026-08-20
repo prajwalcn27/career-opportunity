@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+            background-color:grey;
+            color:black;
+            border-radius:10px;
+            padding-left:5px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .skills {
+            margin-bottom: 20px;
+        }
+        .summary {
+            margin-bottom: 20px;
+        }
+        .education {
+            margin-bottom: 20px;
+        }
+        .education table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .education th, .education td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .education th {
+            background-color: #f2f2f2;
+        }
+        .projects {
+            margin-bottom: 20px;
+        }
+        .project {
+            margin-bottom: 10px;
+        }
+        .project a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .skills ul {
+            list-style-type:disc;
+            padding: 0;
+            margin-left:10px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="profile-info">
+            <h1>{{ profile.name }}</h1>
+            <p><i class="fas fa-envelope"></i> {{ profile.email }}</p>
+            <p><i class="fab fa-linkedin"></i> {{ profile.linkedin }}</p>
+            <p><i class="fas fa-phone"></i> {{ profile.phone }}</p>
+        </div>
+        <div class="summary">
+            <h2>Summary</h2>
+            <p>{{ profile.summary }}</p>
+        </div>
+        <div class="skills">
+            <h2>Skills</h2>
+            <ul>
+            {% for skills in sk_list%}
+                <div id="skills_li">
+                <li>{{skills}}</li>
+                </div>
+            {%endfor%}
+            </ul>
+        </div>
+        <div class="education">
+            <h2>Education</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Institution</th>
+                        <th>CGPA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10th</td>
+                        <td>{{ profile.school_10 }}</td>
+                        <td>{{ profile.cgpa_10 }}</td>
+                    </tr>
+                    <tr>
+                        <td>12th</td>
+                        <td>{{ profile.school_12 }}</td>
+                        <td>{{ profile.cgpa_12 }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{profile.degree}}</td>
+                        <td>{{ profile.university }}</td>
+                        <td>{{ profile.cgpa_degree }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <p><label>{{ profile.project1_name }}</label>: <a href="{{ profile.project1_link }}">{{ profile.project1_link }}</a></p>
+            </div>
+            <div class="project">
+                <p><label>{{ profile.project2_name }}</label>: <a href="{{ profile.project2_link }}">{{ profile.project2_link }}</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

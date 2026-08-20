@@ -1,0 +1,50 @@
+ /* Add your CSS styles here */
+        /* This is just a basic example, you can modify it according to your design */
+        body {
+            background-color:black;
+            margin:0;
+            padding:0;     
+        }
+        h1{
+            color: #fff;
+        }
+        .profile-container {
+            max-width:400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #99c2d6, #6d7b70,#1a1a1a);
+            text-align: center;
+        }
+        
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom:5px;
+        }
+        .profile-info {
+            margin-bottom:15px;
+            
+        }
+        .profile-info h2 {
+            margin-top: 0;
+        }
+        .edit-profile-btn {
+            display: inline-block;
+            background-color:rgb(17, 125, 240);
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+      
+          /* Hover effect */
+          .edit-profile-btn:hover {
+            background-color: #0056b3;
+          }

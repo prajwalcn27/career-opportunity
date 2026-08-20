@@ -1,0 +1,28 @@
+<!-- profile.html -->
+{% extends 'Student/navbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    
+</head>
+<body>
+    {% block main%}
+    <div class="profile-container">
+        <h1>Student Profile</h1>
+        <img class="profile-picture" src="{{profile.profile_picture.url}}" alt="Profile Picture"> 
+        <div class="profile-info">
+            <p>Name: {{profile.name }}</p>
+            <p>Username: {{ profile.user.username }}</p>
+            <p>Email: {{ profile.email }}</p>
+            <p>Department: {{ profile.department }}</p>
+            <p>Batch: {{ profile.batch }}</p>
+            <p>CGPA: {{ profile.cgpa }}</p>
+        </div>
+        <a href="{% url 's_edit_profile' profile.user.username %}" class="edit-profile-btn">Edit Profile</a>
+    </div>
+    {%endblock%}
+</body>
+</html>

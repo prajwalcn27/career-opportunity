@@ -1,0 +1,50 @@
+.container {
+    background-color:#d03fe6; /* Light pink background color with opacity */
+    border-radius: 10px; /* Rounded corners for container */
+    padding: 30px; /* Add some padding to the container */
+    margin-top:80px; /* Adjusted top margin for better alignment */
+    margin-bottom: 50px; /* Adjusted bottom margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    width: 750px; /* Increased width of the container */
+  }
+  form {
+    color: #495057; /* Dark gray text color */
+  }
+  h1 {
+    color: #007bff; /* Blue heading color */
+    text-align: center; /* Center the heading */
+  }
+  label {
+    color: #343a40; /* Dark gray label color */
+    color:white;
+    font-weight:bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+  }
+  input{
+    opacity:0.4;
+    border-radius:15px;
+  }
+  textarea{
+    opacity:0.4;
+    border-radius:10px;
+  }
+  .btn-primary {
+    background-color: #62c489; /* Blue submit button color */
+    border-color:black; /* Blue submit button border color */
+    width:100%; /* Make the button full width */
+    font-size: 1.2rem; /* Increase the font size */
+    margin-top:50px;
+  }
+  .btn-primary:hover {
+    background-color: #34eb6e; /* Darker blue on hover */
+    border-color:#145244; /* Darker blue border on hover */
+  }
+  #form_heading{
+    color:white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to text */
+    font-family: 'Arial', sans-serif; /* Set the font family */
+    font-size: 2.5rem; /* Set the font size */
+    font-weight: bold; /* Set the font weight */
+    letter-spacing: 1px; /* Add letter-spacing */
+    text-transform: uppercase; /* Convert text to uppercase */
+  }

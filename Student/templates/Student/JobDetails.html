@@ -1,0 +1,26 @@
+{% extends 'Student/navbar.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ job.company_name }} Job Details</title>
+    
+</head>
+<body>
+    {% block main %}
+    <div class="job-card">
+        <h2>{{ job.company_name }}</h2>
+        <p><strong>Role:</strong> {{ job.role }}</p>
+        <p><strong>CTC:</strong> {{ job.ctc }} LPA</p>
+        <p><strong>Description:</strong> {{ job.description }}</p>
+        <!-- Display full description -->
+        <!-- You may adjust the styling and layout as needed -->
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" class="apply-button" value="Apply">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
